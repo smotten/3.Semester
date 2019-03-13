@@ -6,11 +6,25 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-    <input type="color"/>
-    <button>Change color</button>
+    <input id="color" type="color"/>
+    <button id="btn">Change color</button>
 
     <script>
+        function add(param1,param2){
+            return param1 + param2;
+        }
+        console.log(add(1,3));
 
+    $('#btn').click(function(){
+       var selectedColor = $("#color").val();
+       console.log("selectedColor: ", selectedColor);
+       $("body").css("background-color", selectedColor);
+    });
+    setInterval(function(){
+        var randomHexColor = '#'+Math.floor(Math.random()*16777215).toString(16);
+        $("body").css("background-color", randomHexColor);
+
+    },1)
 
     </script>
 </body>
